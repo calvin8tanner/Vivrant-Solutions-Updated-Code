@@ -1,1 +1,6 @@
-export default function Page(){return <div>Vivrant Solutions</div>}
+import { redirect } from 'next/navigation'
+
+export default function Page() {
+  redirect('/dashboard')
+  return null
+}

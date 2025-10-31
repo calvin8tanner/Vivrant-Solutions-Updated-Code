@@ -9,23 +9,30 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@prisma/client": "5.19.1",
+    "@headlessui/react": "^2.2.9",
+    "@heroicons/react": "^2.2.0",
+    "@prisma/client": "^5.19.1",
+    "@tailwindcss/forms": "^0.5.10",
+    "autoprefixer": "^10.4.21",
     "bcryptjs": "2.4.3",
     "cookie": "0.6.0",
     "jsonwebtoken": "9.0.2",
     "next": "14.2.5",
+    "openai": "4.59.0",
+    "postcss": "^8.5.6",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-markdown": "^10.1.0",
     "stripe": "16.6.0",
-    "zod": "3.23.8",
-    "openai": "4.59.0"
+    "tailwindcss": "^4.1.16",
+    "zod": "3.23.8"
   },
   "devDependencies": {
-    "prisma": "5.19.1",
-    "typescript": "5.6.3",
+    "@types/bcryptjs": "2.4.6",
     "@types/jsonwebtoken": "9.0.6",
     "@types/node": "20.11.30",
     "@types/react": "18.2.66",
-    "@types/bcryptjs": "2.4.6"
+    "prisma": "5.19.1",
+    "typescript": "5.6.3"
   }
 }
