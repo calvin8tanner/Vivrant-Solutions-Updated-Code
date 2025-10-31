@@ -1,0 +1,1 @@
+import jwt from 'jsonwebtoken'; const S=process.env.JWT_SECRET||'dev'; export type JwtPayload={userId:string,email:string}; export const sign=(p:JwtPayload)=>jwt.sign(p,S,{expiresIn:'7d'}); export const verify=(t:string)=>jwt.verify(t,S) as JwtPayload;
