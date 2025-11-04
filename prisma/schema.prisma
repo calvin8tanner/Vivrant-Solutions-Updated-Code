@@ -12,4 +12,46 @@ model User {
   email     String   @unique
   password  String
   createdAt DateTime @default(now())
+  chats     Chat[]
+  calls     VoiceCall[]
+}
+
+model Chat {
+  id        String    @id @default(cuid())
+  title     String
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  messages  Message[]
+
+  @@index([userId])
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  role      String   // 'user' | 'assistant' | 'system'
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+  chatId    String
+  chat      Chat     @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  tokens    Int      @default(0)
+
+  @@index([chatId])
+}
+
+model VoiceCall {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  audioUrl    String?
+  transcript  String?  @db.Text
+  duration    Float?
+  status      String   // 'scheduled' | 'in-progress' | 'completed' | 'failed'
+  settings    Json     // VoiceCallSettings
+  createdAt   DateTime @default(now())
+  completedAt DateTime?
+
+  @@index([userId])
+  @@index([status])
 }
